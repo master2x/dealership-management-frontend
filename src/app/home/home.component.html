@@ -1,6 +1,26 @@
-<section>
+
+@if(esAdmin){
+    <section>
+    <h1>ola</h1>
       <form>
         <input type="text" placeholder="Filter by city" />
         <button class="primary" type="button">Search</button>
       </form>
+      {{usuario}}
 </section>
+}
+@else {
+    <h1>No eres admin perro</h1>
+    <select >
+    @for(pais of paises; track pais.id){
+     <option>{{pais.pais}}</option>  
+}
+ </select> 
+<button (click)="guardar()">Guardar</button>
+{{mensaje}}
+
+
+<button disabled="true">Eliminar</button>
+}
+
+

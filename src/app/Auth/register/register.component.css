@@ -1,0 +1,8 @@
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    font-family: Arial, Helvetica, sans-serif;
+}
