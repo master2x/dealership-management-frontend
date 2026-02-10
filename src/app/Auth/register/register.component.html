@@ -1,28 +1,51 @@
-
-    <h1>Registrate en GestiCar!</h1>
+<h1>Registrate en GestiCar!</h1>
     <div>
-        <form>
+        <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+
   <label for="name">Nombre:</label>
-  <input type="text" id="name" name="name" required>
+  <input type="text"  id="name" name="name" formControlName="name">
+
+  <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+  <p>El nombre es obligatorio</p>
+  </div>
 
   <label for="lastname">Apellido:</label>
-  <input type="text" id="lastname" name="lastname" required>
+  <input type="text"  id="lastname" name="lastname" formControlName="lastname">
+
+  <div *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched"> 
+    <p>El apellido es obligatorio</p>
+  </div>
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
+  <input type="email"  id="email" name="email" formControlName="email">
+
+  <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+  <p>El correo es obligatorio</p>
+</div>
 
   <label for="password">Contraseña:</label>
-  <input type="password" id="password" name="password" required>
+  <input type="password"  id="password" name="password" formControlName="password">
+
+  <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+  <p>La contraseña es obligatoria</p>
+</div>
 
   <label for="tel">Teléfono:</label>
-  <input type="number" id="tel" name="tel" required>
+  <input type="number"  id="tel" name="tel" formControlName="tel">
 
-  <button type="submit">Registrar</button>
+  <div *ngIf="registerForm.get('tel')?.invalid && registerForm.get('tel')?.touched">
+  <p>El telefono es obligatorio</p>
+</div>
+
+  <button type="submit"[disabled]="registerForm.invalid">Registrarse</button>
 </form>
 <button (click)="cambiarModo.emit()">
-  Ya tengo cuenta
+  Ya tienes cuenta? Ingresa
 </button>
-    </div>
+
+<a routerLink="empleados">go to empleados</a>
+<a routerLink="formulario">go to forms</a>
+</div>
     
 
 

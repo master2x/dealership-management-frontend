@@ -1,8 +1,6 @@
-div {
-    display: flex;
-    flex-direction: column;
+.ng-invalid:not(form) {
+    border: 1px solid red;
 }
-
-form {
-    font-family: Arial, Helvetica, sans-serif;
+.ng-valid:not(form) {
+    border: 1px solid green;
 }
